@@ -82,7 +82,6 @@ header {
     justify-content: center;
     align-items: flex-start;
     margin-bottom: 56px;
-    max-height: 150px;
     overflow: hidden;
 }
 
@@ -92,6 +91,7 @@ header {
 
 .article-list__single-article__left-column {
     flex: 0 0 35%;
+    max-height: 160px;
 }
 
 .article-list__single-article__right-column {
@@ -116,6 +116,8 @@ header {
 
 .article-list__single-article__right-column p {
     font-size: 13px;
+    letter-spacing: 2px;
+    line-height: 18px;
 }
 
 /******************************
@@ -125,6 +127,61 @@ header {
 .categorised-articles-container {
     flex: 0 0 35%;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.categorised-articles-container__articles-card {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 15px 2px #ececec;
+    padding: 25px 20px;
+    margin-bottom: 50px;
+}
+
+.categorised-articles-container__articles-card:last-child {
+    margin-bottom: 0px;
+}
+
+.categorised-articles-container__articles-card h2 {
+    font-size: 18px;
+    padding-bottom: 30px;
+    border-image-source: linear-gradient(to left, #2c8cff, #c8e2f9);;
+    border-bottom: 2px solid;
+    border-image-slice: 1;
+    margin-bottom: 30px;
+}
+
+.categorised-articles-container__articles-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.categorised-articles-container__single-article {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.categorised-articles-container__article-title {
+    text-decoration: none;
+    color: #000000;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.categorised-articles-container__article-publish-date {
+    font-size: 12px;
+    display: block;
+    color: #636363;
+    letter-spacing: 1px;
+}
+
+.categorised-articles-container__more-relative-articles {
+    text-decoration: none;
+    color: #2d8cff;
+    letter-spacing: 1px;
+    text-align: center;
 }
 
 
@@ -148,16 +205,16 @@ header {
     padding: 20px 0;
 }
 
-.footer__top-area__logo-area__logo {
+.footer__logo {
     display: block;
     height: 61px;
 }
 
-.footer__top-area__logo-area__logo img{
+.footer__logo img{
     max-width: 200px;
 }
 
-.footer__top-area__menu-area__nav__nav-item {
+.footer__nav-item {
     letter-spacing: 1px;
     text-decoration: none;
     color: #2d8cff;
@@ -167,7 +224,7 @@ header {
     transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.footer__top-area__menu-area__nav__nav-item:hover {
+.footer__nav-item:hover {
     color: #ffffff;
     background-color: #2d8cff;
 }
@@ -179,11 +236,11 @@ header {
     padding: 20px 0;
 }
 
-.footer__top-area__bottom-area__copyright {
+.footer__copyright {
     color: #525c67;
 }
 
-.footer__top-area__bottom-area__media-links img {
+.footer__media-links img {
     max-width: 30px;
     max-height: 30px;
 }
