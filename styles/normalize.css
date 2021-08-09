@@ -161,6 +161,7 @@ button,
 input,
 optgroup,
 select,
+
 textarea {
   font-family: inherit; /* 1 */
   font-size: 100%; /* 1 */
@@ -372,4 +373,11 @@ p {
 
 p:last-child {
   margin-bottom: 0;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500&display=swap');
+
+body {
+    font-family: 'Noto Sans SC', Arial, Helvetica, sans-serif;
+    font-weight: 400;
 }
