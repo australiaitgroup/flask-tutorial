@@ -1,0 +1,45 @@
+header {
+    display: flex;
+    max-width: 75rem;
+    margin: auto;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-area {
+    max-width: 200px;
+}
+
+.logo-area__logo {
+    display: block;
+    height: 61px;
+}
+
+.logo-area__logo img {
+    width: 100%;
+}
+
+.menu-area {
+
+}
+
+.menu-area__nav {
+
+}
+
+.menu-area__nav__nav-item {
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: #2d8cff;
+    background-color: #ffffff;
+    padding: 5px 10px;
+    border-bottom: 2px solid #2d8cff;
+    margin: 0 20px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.menu-area__nav__nav-item:hover {
+    background-color: #2d8cff;
+    color: #ffffff;
+}
