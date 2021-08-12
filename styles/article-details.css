@@ -1,0 +1,30 @@
+.article-details {
+    padding: 10px;
+}
+
+.article-details__heading-area h1 {
+    margin-bottom: 30px;
+}
+
+.article-details__author {
+    letter-spacing: 1px;
+}
+
+.article-details__publish-date {
+    margin-left: 20px;
+    font-size: 12px;
+    color: #636363;
+    letter-spacing: 1px;
+}
+
+.article-details__content-area {
+    margin-top: 10px;
+    padding: 30px 0;
+    border-image-source: linear-gradient(to left, #2c8cff, #c8e2f9);
+    border-top: 2px solid;
+    border-image-slice: 1;
+}
+
+.article-details__content-area p {
+    font-size: 1rem;
+}
