@@ -38,8 +38,8 @@
                     <p>别急别急~课代表特意整理了这份"Presentation必备衔接语句"不仅解决你的英语难题, 更是帮你理清思路的必备法宝~</p>
                 </div>
                 <div class="article-details__extra-operation-area">
-                    <button class="article-details__btn btn btn-primary">Edit Article</button>
-                    <button class="article-details__btn btn btn-secondary">Delete Article</button>
+                    <button class="article-details__btn btn btn-primary" onclick="editArticle()">Edit Article</button>
+                    <button class="article-details__btn btn btn-secondary" onclick="deleteArticle()">Delete Article</button>
                 </div>
             </div>
             <section class="categorised-articles-container">
@@ -106,5 +106,18 @@
                 </div>
             </div>
         </footer>
+        <script>
+            function deleteArticle() {
+                const returnMsg = confirm("Do you really want to delete this article?");
+
+                if(returnMsg === true) {
+                    // Delete this article
+                }
+            }
+
+            function editArticle() {
+                // redirect to the update-page with article id
+            }
+        </script>
     </body>
 </html>
