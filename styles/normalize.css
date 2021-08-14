@@ -42,9 +42,21 @@ h1 {
   margin: 1rem 0;
 }
 
+@media only screen and (max-width: 767px) {
+  h1 {
+      font-size: 1.3rem;
+  }
+}
+
 h2 {
   font-size: 1.5rem;
   margin: 1rem 0;
+}
+
+@media only screen and (max-width: 767px) {
+  h2 {
+      font-size: 1.25rem;
+  }
 }
 
 h3 {
@@ -52,9 +64,21 @@ h3 {
   margin: 1rem 0;
 }
 
+@media only screen and (max-width: 767px) {
+  h3 {
+      font-size: 1.2rem;
+  }
+}
+
 h4 {
   font-size: 1.3rem;
   margin: 1rem 0;
+}
+
+@media only screen and (max-width: 767px) {
+  h4 {
+      font-size: 1.15rem;
+  }
 }
 
 h5 {
@@ -62,9 +86,21 @@ h5 {
   margin: 1rem 0;
 }
 
+@media only screen and (max-width: 767px) {
+  h5 {
+      font-size: 1.1rem;
+  }
+}
+
 h6 {
   font-size: 1.1rem;
   margin: 1rem 0;
+}
+
+@media only screen and (max-width: 767px) {
+  h6 {
+      font-size: 1.05rem;
+  }
 }
 
 /* Grouping content
@@ -186,7 +222,6 @@ button,
 input,
 optgroup,
 select,
-
 textarea {
   font-family: inherit; /* 1 */
   font-size: 100%; /* 1 */
@@ -405,4 +440,8 @@ p:last-child {
 body {
     font-family: 'Noto Sans SC', Arial, Helvetica, sans-serif;
     font-weight: 400;
+}
+
+input {
+  box-sizing: border-box;
 }

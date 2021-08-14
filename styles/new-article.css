@@ -17,7 +17,7 @@
     align-items: flex-start;
 }
 
-input[type='text'] {
+.new-article input[type='text'] {
     max-width: 300px;
     border: 1px solid #cccccc;
     border-radius: 6px;
@@ -27,18 +27,25 @@ input[type='text'] {
     color: #252525;
 }
 
-input[type='checkbox'] {
+@media only screen and (max-width: 767px) {
+    .new-article input[type='text'] {
+        width: 100%;
+        max-width: unset;
+    }
+}
+
+.new-article input[type='checkbox'] {
     margin-right: 10px;
 }
 
-.input-wrapper label {
+.new-article .input-wrapper label {
     letter-spacing: 1px;
     font-size: 15px;
     margin-bottom: 1px;
     color: #5d5d5d;
 }
 
-input[type='submit'] {
+.new-article input[type='submit'] {
     background-color: white;
     border: 2px solid #2c8cff;
     color: #2c8cff;
@@ -49,7 +56,7 @@ input[type='submit'] {
     cursor: pointer;
 }
 
-input[type='submit']:hover {
+.new-article input[type='submit']:hover {
     background-color: #2c8cff;
     color: white;
 }

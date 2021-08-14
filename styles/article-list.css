@@ -13,6 +13,13 @@
     overflow: hidden;
 }
 
+@media only screen and (max-width: 767px) {
+    .article-list__single-article {
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+}
+
 .article-list__single-article:last-child {
     margin-bottom: 0;
 }
@@ -27,8 +34,26 @@
     padding: 0 0 0 30px;
 }
 
+@media only screen and (max-width: 767px) {
+    .article-list__single-article__right-column {
+        padding: 20px 0 0 0;
+    }
+}
+
+.article-list__single-article__right-column a {
+    text-decoration: none;
+    color: black;
+}
+
 .article-list__single-article__left-column img {
     width: 100%;
+}
+
+@media only screen and (max-width: 767px) {
+    .article-list__single-article__left-column {
+        max-height: 200px;
+        overflow: hidden;
+    }
 }
 
 .article-list__single-article__title {

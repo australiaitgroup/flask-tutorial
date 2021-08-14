@@ -7,6 +7,12 @@ header {
     align-items: center;
 }
 
+@media only screen and (max-width: 767px) {
+    header {
+        flex-direction: column;
+    }
+}
+
 .logo-area {
     max-width: 200px;
 }
@@ -22,6 +28,12 @@ header {
 
 .menu-area {
     display: flex;
+}
+
+@media only screen and (max-width: 767px) {
+    .menu-area {
+        margin-top: 20px;
+    }
 }
 
 .menu-area__nav__nav-item {

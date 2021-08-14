@@ -28,3 +28,14 @@
 .article-details__content-area p {
     font-size: 1rem;
 }
+
+@media only screen and (max-width: 767px) {
+    .article-details__extra-operation-area {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .article-details__btn {
+        margin-right: 0;
+    }
+}

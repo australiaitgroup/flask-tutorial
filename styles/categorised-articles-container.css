@@ -13,6 +13,12 @@
     margin-bottom: 50px;
 }
 
+@media only screen and (max-width: 767px) {
+    .categorised-articles-container__articles-card {
+        margin-bottom: 20px;
+    }
+}
+
 .categorised-articles-container__articles-card:last-child {
     margin-bottom: 0px;
 }
