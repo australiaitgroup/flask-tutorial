@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ray's blog | Article Page</title>
+    <!-- <link rel="icon" type="image/png" href="./assets/favicon.jpg" /> -->
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.jpg') }}" />
+
+    <!-- <link rel="stylesheet" href="./styles/article-page.css"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='article-page.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='home-page.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='search-results-page.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='update-page.css') }}">
+
+</head>
+
+<body>
+    <header>
+        <div class="logo-area">
+            <a class="logo-area__logo" href="./home.html">
+                <!-- <img src="./assets/logo.jpg"> -->
+                <img src="{{ url_for('static', filename='logo.jpg') }}">
+            </a>
+        </div>
+        <div class="menu-area">
+            <div class="search-area">
+                <form method="GET">
+                    <input type="text" placeholder="Search" name="search">
+                    <button type="submit">
+                        <!-- <img src="assets/search-blue.png"> -->
+                        <img src="{{ url_for('static', filename='search-blue.png') }}">
+                    </button>
+                </form>
+            </div>
+            <nav class="menu-area__nav">
+                <a class="menu-area__nav__nav-item" href="./add-page.html">Add</a>
+            </nav>
+        </div>
+    </header>
+    {% block content %}
+
+    {% endblock %}
+    <footer class="footer">
+        <div class="footer__top-area">
+            <div class="footer__logo-area">
+                <a class="footer__logo" href="home.html">
+                    <!-- <img src="./assets/logo.jpg"> -->
+                    <img src="{{ url_for('static', filename='logo.jpg') }}">
+                </a>
+            </div>
+            <div class="footer__menu-area">
+                <nav class="footer__nav">
+                    <a class="footer__nav-item" href="./add.html">Add New Article</a>
+                </nav>
+            </div>
+        </div>
+        <div class="footer__bottom-area">
+            <span class="footer__copyright">©2021 ray's blog</span>
+            <div class="footer__media-links">
+                <a href="https://www.linkedin.com/in/xinran-ma/">
+                    <!-- <img src="./assets/linkedin.png"> -->
+                    <img src="{{ url_for('static', filename='linkedin.png') }}">
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
