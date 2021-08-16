@@ -21,7 +21,7 @@
 <body>
     <header>
         <div class="logo-area">
-            <a class="logo-area__logo" href="./home.html">
+            <a class="logo-area__logo" href="{{ url_for('index') }}">
                 <!-- <img src="./assets/logo.jpg"> -->
                 <img src="{{ url_for('static', filename='logo.jpg') }}">
             </a>
@@ -37,31 +37,29 @@
                 </form>
             </div>
             <nav class="menu-area__nav">
-                <a class="menu-area__nav__nav-item" href="./add-page.html">Add</a>
+                <a class="menu-area__nav__nav-item" href="{{ url_for('add_page') }}">Add</a>
             </nav>
         </div>
     </header>
     <div class="main-content">
         <div class="new-article">
             <form method="POST">
+                {# This hidden_tag is a CSRF security feature. #}
+                {{ form.hidden_tag() }}
                 <div class="title-wrapper input-wrapper flex-column">
-                    <label for="title">Title:</label>
-                    <input type="text" id="title" name="title">
-                </div>
-                <div class="author-wrapper input-wrapper flex-column">
-                    <label for="author">Author:</label>
-                    <input type="text" id="author" name="author">
+                    {{ form.title.label() }}
+                    {{form.title()  }}
                 </div>
                 <div class="featured-article-wrapper input-wrapper">
-                    <input type="checkbox" id="featured-article" name="featured-article">
-                    <label for="featured-article">Featured Article?</label>
+                    {{ form.featured.label() }}
+                    {{form.featured()  }}
                 </div>
                 <div class="content-wrapper input-wrapper flex-column">
-                    <label for="content">Content:</label>
-                    <div id="article-content" class="article-content"></div>
+                    {{ form.content.label() }}
+                    {{ form.content() }}
                 </div>
                 <div class="submit-wrapper">
-                    <input type="submit" value="Submit">
+                    {{ form.submit() }}
                 </div>
             </form>
         </div>
@@ -106,21 +104,21 @@
                         <span class="categorised-articles-container__article-publish-date">02/08/2021</span>
                     </div>
                 </div>
-                <a class="categorised-articles-container__more-relative-articles" href="./home.html">More ></a>
+                <a class="categorised-articles-container__more-relative-articles" href="{{ url_for('index') }}">More ></a>
             </div>
         </section>
     </div>
     <footer class="footer">
         <div class="footer__top-area">
             <div class="footer__logo-area">
-                <a class="footer__logo" href="home.html">
+                <a class="footer__logo" href="{{ url_for('index') }}">
                     <!-- <img src="./assets/logo.jpg"> -->
                     <img src="{{ url_for('static', filename='logo.jpg') }}">
                 </a>
             </div>
             <div class="footer__menu-area">
                 <nav class="footer__nav">
-                    <a class="footer__nav-item" href="./add.html">Add New Article</a>
+                    <a class="footer__nav-item" href="{{ url_for('add_page') }}">Add New Article</a>
                 </nav>
             </div>
         </div>
@@ -135,9 +133,7 @@
             </div>
         </div>
     </footer>
-    <script>
-        let editor = new FroalaEditor('#article-content');
-    </script>
+
 </body>
 
 </html>

@@ -3,6 +3,7 @@ from flask import Flask, render_template, url_for, redirect
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from datetime import datetime
+from forms import AddForm
 
 app = Flask(__name__)
 # Key for Forms
@@ -53,9 +54,22 @@ def index():
     return render_template('home-page.html', posts=posts)
 
 
-@app.route('/add')
+@app.route('/add', methods=['GET', 'POST'])
 def add_page():
-    return render_template('add-page.html')
+    form = AddForm()
+
+    if form.validate_on_submit():
+        title = form.title.data
+        content = form.content.data
+        featured = form.featured.data
+        # Add new post to database
+        post = Post(title, content, featured)
+        db.session.add(post)
+        db.session.commit()
+        return redirect(url_for('index'))
+
+    return render_template('add-page.html', form=form)
+    # return render_template('add-page.html')
 
 
 @app.route('/article')

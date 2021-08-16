@@ -19,7 +19,7 @@
 <body>
     <header>
         <div class="logo-area">
-            <a class="logo-area__logo" href="./home.html">
+            <a class="logo-area__logo" href="{{ url_for('index') }}">
                 <!-- <img src="./assets/logo.jpg"> -->
                 <img src="{{ url_for('static', filename='logo.jpg') }}">
             </a>
@@ -35,7 +35,7 @@
                 </form>
             </div>
             <nav class="menu-area__nav">
-                <a class="menu-area__nav__nav-item" href="./add-page.html">Add</a>
+                <a class="menu-area__nav__nav-item" href="{{url_for('add_page')}}">Add</a>
             </nav>
         </div>
     </header>
@@ -45,14 +45,14 @@
     <footer class="footer">
         <div class="footer__top-area">
             <div class="footer__logo-area">
-                <a class="footer__logo" href="home.html">
+                <a class="footer__logo" href="{{ url_for('index') }}">
                     <!-- <img src="./assets/logo.jpg"> -->
                     <img src="{{ url_for('static', filename='logo.jpg') }}">
                 </a>
             </div>
             <div class="footer__menu-area">
                 <nav class="footer__nav">
-                    <a class="footer__nav-item" href="./add.html">Add New Article</a>
+                    <a class="footer__nav-item" href="{{url_for('add_page')}}">Add New Article</a>
                 </nav>
             </div>
         </div>
