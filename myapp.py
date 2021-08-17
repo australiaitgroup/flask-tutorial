@@ -1,9 +1,9 @@
 import os
-from flask import Flask, render_template, url_for, redirect
+from flask import Flask, render_template, url_for, redirect, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from datetime import datetime
-from forms import AddForm
+from forms import AddForm, UpdateForm, DeleteForm
 
 app = Flask(__name__)
 # Key for Forms
@@ -69,12 +69,13 @@ def add_page():
         return redirect(url_for('index'))
 
     return render_template('add-page.html', form=form)
-    # return render_template('add-page.html')
 
 
-@app.route('/article')
-def article_page():
-    return render_template('article-page.html')
+@app.route('/article/<id>')
+def article_page(id):
+    post = Post.query.get(id)
+    posts = Post.query.all()
+    return render_template('article-page.html', post=post, posts=posts)
 
 
 @app.route('/search')
@@ -82,9 +83,40 @@ def search_results_page():
     return render_template('search-results-page.html')
 
 
-@app.route('/update')
-def update_page():
-    return render_template('update-page.html')
+@app.route('/update/<id>', methods=['GET', 'POST'])
+def update_page(id):
+    form = UpdateForm()
+    post = Post.query.get(id)
+    posts = Post.query.all()
+    if form.validate_on_submit():
+        post.title = form.title.data
+        post.content = form.content.data
+        post.featured = form.featured.data
+        db.session.commit()
+        return redirect(url_for('index'))
+
+    elif request.method == 'GET':
+        form.title.data = post.title
+        form.content.data = post.content
+        form.featured.data = post.featured
+
+    return render_template('update-page.html', post=post, posts=posts, form=form)
+
+
+@app.route('/delete/<id>', methods=['GET', 'POST'])
+def delete_page(id):
+
+    form = DeleteForm()
+
+    if form.validate_on_submit():
+        id = form.id.data
+        post = Post.query.get(id)
+        db.session.delete(post)
+        db.session.commit()
+        return redirect(url_for('index'))
+    elif request.method == 'GET':
+        form.id.data = id
+    return render_template('delete-page.html', form=form)
 
 
 if __name__ == '__main__':

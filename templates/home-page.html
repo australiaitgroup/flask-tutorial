@@ -12,7 +12,7 @@
                 <img src="{{ url_for('static', filename='article1.png') }}">
             </div>
             <div class="article-list__single-article__right-column">
-                <a href="">
+                <a href="{{ url_for('article_page', id=post.id) }}">
                     <h3 class="article-list__single-article__title">{{post.title}}</h3>
                 </a>
                 <span class="article-list__single-article__publish-date">{{post.create_Date}}</span>
@@ -29,45 +29,19 @@
         <div class="categorised-articles-container__articles-card">
             <h2>Featured Articles</h2>
             <div class="categorised-articles-container__articles-list">
+                {% for post in posts  %}
+                {% if post.featured %}
                 <div class="categorised-articles-container__single-article">
-                    <a class="categorised-articles-container__article-title" href="./home.html">Unimelb 墨尔本大学|
-                        留学生网课必备! zoom 里拥有 实时字幕, 再也不用担心老师们的奇特口音了!</a>
-                    <span class="categorised-articles-container__article-publish-date">02/08/2021</span>
+                    <a class="categorised-articles-container__article-title"
+                        href="{{ url_for('index') }}">{{post.title}}</a>
+                    <span class="categorised-articles-container__article-publish-date">{{post.create_Date}}</span>
                 </div>
-                <div class="categorised-articles-container__single-article">
-                    <a class="categorised-articles-container__article-title" href="./home.html">Unimelb 墨尔本大学|
-                        留学生网课必备! zoom 里拥有 实时字幕, 再也不用担心老师们的奇特口音了!</a>
-                    <span class="categorised-articles-container__article-publish-date">02/08/2021</span>
-                </div>
-                <div class="categorised-articles-container__single-article">
-                    <a class="categorised-articles-container__article-title" href="./home.html">Unimelb 墨尔本大学|
-                        留学生网课必备! zoom 里拥有 实时字幕, 再也不用担心老师们的奇特口音了!</a>
-                    <span class="categorised-articles-container__article-publish-date">02/08/2021</span>
-                </div>
+                {% endif %}
+                {% endfor %}
             </div>
-            <a class="categorised-articles-container__more-relative-articles" href="./home.html">More ></a>
+            <a class="categorised-articles-container__more-relative-articles" href="{{ url_for('index') }}">More ></a>
         </div>
-        <div class="categorised-articles-container__articles-card">
-            <h2>Featured Articles</h2>
-            <div class="categorised-articles-container__articles-list">
-                <div class="categorised-articles-container__single-article">
-                    <a class="categorised-articles-container__article-title" href="./home.html">Unimelb 墨尔本大学|
-                        留学生网课必备! zoom 里拥有 实时字幕, 再也不用担心老师们的奇特口音了!</a>
-                    <span class="categorised-articles-container__article-publish-date">02/08/2021</span>
-                </div>
-                <div class="categorised-articles-container__single-article">
-                    <a class="categorised-articles-container__article-title" href="./home.html">Unimelb 墨尔本大学|
-                        留学生网课必备! zoom 里拥有 实时字幕, 再也不用担心老师们的奇特口音了!</a>
-                    <span class="categorised-articles-container__article-publish-date">02/08/2021</span>
-                </div>
-                <div class="categorised-articles-container__single-article">
-                    <a class="categorised-articles-container__article-title" href="./home.html">Unimelb 墨尔本大学|
-                        留学生网课必备! zoom 里拥有 实时字幕, 再也不用担心老师们的奇特口音了!</a>
-                    <span class="categorised-articles-container__article-publish-date">02/08/2021</span>
-                </div>
-            </div>
-            <a class="categorised-articles-container__more-relative-articles" href="./home.html">More ></a>
-        </div>
+
     </section>
 </div>
 {% endblock %}

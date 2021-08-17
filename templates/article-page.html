@@ -1,143 +1,39 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>ray's blog | Article Page</title>
-    <!-- <link rel="icon" type="image/png" href="./assets/favicon.jpg" /> -->
-    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.jpg') }}" />
-
-    <!-- <link rel="stylesheet" href="./styles/article-page.css"> -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='article-page.css') }}">
-
-</head>
-
-<body>
-    <header>
-        <div class="logo-area">
-            <a class="logo-area__logo" href="./home.html">
-                <!-- <img src="./assets/logo.jpg"> -->
-                <img src="{{ url_for('static', filename='logo.jpg') }}">
-            </a>
+{% extends "base.html" %}
+{% block content %}
+<div class="main-content">
+    <div class="article-details">
+        <div class="article-details__heading-area">
+            <h1>{{post.title}}</h1>
         </div>
-        <div class="menu-area">
-            <div class="search-area">
-                <form method="GET">
-                    <input type="text" placeholder="Search" name="search">
-                    <button type="submit">
-                        <!-- <img src="assets/search-blue.png"> -->
-                        <img src="{{ url_for('static', filename='search-blue.png') }}">
-                    </button>
-                </form>
-            </div>
-            <nav class="menu-area__nav">
-                <a class="menu-area__nav__nav-item" href="./add-page.html">Add</a>
-            </nav>
+        <div class="article-details__info-area">
+            <span class="article-details__publish-date">{{post.create_Date}}</span>
         </div>
-    </header>
-    <div class="main-content">
-        <div class="article-details">
-            <div class="article-details__heading-area">
-                <h1>Unimelb 墨尔本大学| 拯救让你头秃的 Presentation !这些衔接语句助你一臂之力~</h1>
-            </div>
-            <div class="article-details__info-area">
-                <span class="article-details__author">Ray Ma</span>
-                <span class="article-details__publish-date">01/08/2021</span>
-            </div>
-            <div class="article-details__content-area">
-                <p>对于咱们留学生来说Presentation一直是让大家头痛有头秃的一大难题!</p>
-                <p>不仅要在内容上做大量研究, ppt样式也要精雕细琢~ 全部完成后, 展示当天的演讲更重中之重! (按住自己紧张颤抖的小手手…</p>
-                <p>课代表也了解到现在大部分澳洲留学生只能在国内上网课, 英文环境约等于零那这纯英pre更是压力山大!</p>
-                <p>别急别急~课代表特意整理了这份"Presentation必备衔接语句"不仅解决你的英语难题, 更是帮你理清思路的必备法宝~</p>
-            </div>
-            <div class="article-details__extra-operation-area">
-                <button class="article-details__btn btn btn-primary" onclick="editArticle()">Edit Article</button>
-                <button class="article-details__btn btn btn-secondary" onclick="deleteArticle()">Delete Article</button>
-            </div>
+        <div class="article-details__content-area">
+            <p>{{post.content}}</p>
         </div>
-        <section class="categorised-articles-container">
-            <div class="categorised-articles-container__articles-card">
-                <h2>Featured Articles</h2>
-                <div class="categorised-articles-container__articles-list">
-                    <div class="categorised-articles-container__single-article">
-                        <a class="categorised-articles-container__article-title" href="./home.html">Unimelb 墨尔本大学|
-                            留学生网课必备! zoom 里拥有 实时字幕, 再也不用担心老师们的奇特口音了!</a>
-                        <span class="categorised-articles-container__article-publish-date">02/08/2021</span>
-                    </div>
-                    <div class="categorised-articles-container__single-article">
-                        <a class="categorised-articles-container__article-title" href="./home.html">Unimelb 墨尔本大学|
-                            留学生网课必备! zoom 里拥有 实时字幕, 再也不用担心老师们的奇特口音了!</a>
-                        <span class="categorised-articles-container__article-publish-date">02/08/2021</span>
-                    </div>
-                    <div class="categorised-articles-container__single-article">
-                        <a class="categorised-articles-container__article-title" href="./home.html">Unimelb 墨尔本大学|
-                            留学生网课必备! zoom 里拥有 实时字幕, 再也不用担心老师们的奇特口音了!</a>
-                        <span class="categorised-articles-container__article-publish-date">02/08/2021</span>
-                    </div>
-                </div>
-                <a class="categorised-articles-container__more-relative-articles" href="./home.html">More ></a>
-            </div>
-            <div class="categorised-articles-container__articles-card">
-                <h2>Featured Articles</h2>
-                <div class="categorised-articles-container__articles-list">
-                    <div class="categorised-articles-container__single-article">
-                        <a class="categorised-articles-container__article-title" href="./home.html">Unimelb 墨尔本大学|
-                            留学生网课必备! zoom 里拥有 实时字幕, 再也不用担心老师们的奇特口音了!</a>
-                        <span class="categorised-articles-container__article-publish-date">02/08/2021</span>
-                    </div>
-                    <div class="categorised-articles-container__single-article">
-                        <a class="categorised-articles-container__article-title" href="./home.html">Unimelb 墨尔本大学|
-                            留学生网课必备! zoom 里拥有 实时字幕, 再也不用担心老师们的奇特口音了!</a>
-                        <span class="categorised-articles-container__article-publish-date">02/08/2021</span>
-                    </div>
-                    <div class="categorised-articles-container__single-article">
-                        <a class="categorised-articles-container__article-title" href="./home.html">Unimelb 墨尔本大学|
-                            留学生网课必备! zoom 里拥有 实时字幕, 再也不用担心老师们的奇特口音了!</a>
-                        <span class="categorised-articles-container__article-publish-date">02/08/2021</span>
-                    </div>
-                </div>
-                <a class="categorised-articles-container__more-relative-articles" href="./home.html">More ></a>
-            </div>
-        </section>
+        <div class="article-details__extra-operation-area">
+            <a class="article-details__btn btn btn-primary" href="{{ url_for('update_page', id=post.id) }}">Edit
+                Article</a>
+            <a class="article-details__btn btn btn-secondary" href="{{ url_for('delete_page', id=post.id) }}">Delete
+                Article</a>
+        </div>
     </div>
-    <footer class="footer">
-        <div class="footer__top-area">
-            <div class="footer__logo-area">
-                <a class="footer__logo" href="home.html">
-                    <!-- <img src="./assets/logo.jpg"> -->
-                    <img src="{{ url_for('static', filename='logo.jpg') }}">
-                </a>
+    <section class="categorised-articles-container">
+        <div class="categorised-articles-container__articles-card">
+            <h2>Featured Articles</h2>
+            <div class="categorised-articles-container__articles-list">
+                {% for post in posts  %}
+                {% if post.featured %}
+                <div class="categorised-articles-container__single-article">
+                    <a class="categorised-articles-container__article-title"
+                        href="{{ url_for('index') }}">{{post.title}}</a>
+                    <span class="categorised-articles-container__article-publish-date">{{post.create_Date}}</span>
+                </div>
+                {% endif %}
+                {% endfor %}
             </div>
-            <div class="footer__menu-area">
-                <nav class="footer__nav">
-                    <a class="footer__nav-item" href="./add.html">Add New Article</a>
-                </nav>
-            </div>
+            <a class="categorised-articles-container__more-relative-articles" href="{{ url_for('index') }}">More ></a>
         </div>
-        <div class="footer__bottom-area">
-            <span class="footer__copyright">©2021 ray's blog</span>
-            <div class="footer__media-links">
-                <a href="https://www.linkedin.com/in/xinran-ma/">
-                    <!-- <img src="./assets/linkedin.png"> -->
-                    <img src="{{ url_for('static', filename='linkedin.png') }}">
-                </a>
-            </div>
-        </div>
-    </footer>
-    <script>
-        function deleteArticle() {
-            const returnMsg = confirm("Do you really want to delete this article?");
-
-            if (returnMsg === true) {
-                // Delete this article
-            }
-        }
-
-        function editArticle() {
-            // redirect to the update-page with article id
-        }
-    </script>
-</body>
-
-</html>
+    </section>
+</div>
+{% endblock %}

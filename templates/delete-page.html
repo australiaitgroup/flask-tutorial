@@ -6,17 +6,10 @@
             {# This hidden_tag is a CSRF security feature. #}
             {{ form.hidden_tag() }}
             <div class="title-wrapper input-wrapper flex-column">
-                {{ form.title.label() }}
-                {{form.title()  }}
+                {{ form.id.label() }}
+                {{form.id()  }}
             </div>
-            <div class="featured-article-wrapper input-wrapper">
-                {{ form.featured.label() }}
-                {{form.featured()  }}
-            </div>
-            <div class="content-wrapper input-wrapper flex-column">
-                {{ form.content.label() }}
-                {{ form.content() }}
-            </div>
+
             <div class="submit-wrapper">
                 {{ form.submit() }}
             </div>
