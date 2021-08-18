@@ -3,7 +3,7 @@ from flask import Flask, render_template, url_for, redirect, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from datetime import datetime
-from forms import AddForm, UpdateForm, DeleteForm
+from forms import AddForm, UpdateForm, DeleteForm, SearchForm
 
 app = Flask(__name__)
 # Key for Forms
@@ -47,10 +47,32 @@ class Post(db.Model):
 
 ##########################################
 
+@app.context_processor
+def inject_SearchForm():
+    searchForm = SearchForm()
+    if searchForm.validate_on_submit():
+        searchContent = searchForm.searchContent.data
+        searchedPosts = Post.query.filter(Post.title.contains(searchContent))
+        print(searchedPosts)
+        return redirect(url_for('search_results_page', posts=searchedPosts))    
+    return dict(
+        searchForm=searchForm,
+    )
 
-@app.route('/')
+
+@app.route('/search')
+def search_results_page():
+    return render_template('search-results-page.html')
+
+
+@app.route('/', methods=['GET', 'POST'])
 def index():
+    # searchForm = SearchForm()
     posts = Post.query.all()
+    # searchForm = searchForm
+
+
+
     return render_template('home-page.html', posts=posts)
 
 
@@ -76,11 +98,6 @@ def article_page(id):
     post = Post.query.get(id)
     posts = Post.query.all()
     return render_template('article-page.html', post=post, posts=posts)
-
-
-@app.route('/search')
-def search_results_page():
-    return render_template('search-results-page.html')
 
 
 @app.route('/update/<id>', methods=['GET', 'POST'])

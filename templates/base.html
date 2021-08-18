@@ -25,13 +25,18 @@
             </a>
         </div>
         <div class="menu-area">
-            <div class="search-area">
-                <form method="GET">
-                    <input type="text" placeholder="Search" name="search">
-                    <button type="submit">
-                        <!-- <img src="assets/search-blue.png"> -->
-                        <img src="{{ url_for('static', filename='search-blue.png') }}">
-                    </button>
+            <div class="c">
+                <form method="POST" class="search-form">
+                    {# This hidden_tag is a CSRF security feature. #}
+                    {{ searchForm.hidden_tag() }}
+                    <div class="title-wrapper input-wrapper flex-column" style="margin-bottom: 0;">
+                        {{ searchForm.searchContent.label() }}
+                        {{searchForm.searchContent()  }}
+                    </div>
+                    <!-- <button type="submit"> -->
+
+                    {{ searchForm.submit(class_="search-form-submit") }}
+                    <!-- </button> -->
                 </form>
             </div>
             <nav class="menu-area__nav">

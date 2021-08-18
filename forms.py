@@ -18,3 +18,8 @@ class UpdateForm(FlaskForm):
 class DeleteForm(FlaskForm):
     id = IntegerField('Id Number of Post to Remove:')
     submit = SubmitField('Remove Post')
+    
+
+class SearchForm(FlaskForm):
+    searchContent = StringField('', validators=[DataRequired()])
+    submit = SubmitField('Search')

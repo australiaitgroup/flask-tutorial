@@ -81,3 +81,12 @@ header {
     background-color: #2d8cff;
     color: #ffffff;
 }
+
+.search-form{
+    display: flex;
+    align-items: center;
+}
+
+.search-form-submit{
+    width: auto;
+}
