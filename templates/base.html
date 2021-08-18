@@ -25,22 +25,8 @@
             </a>
         </div>
         <div class="menu-area">
-            <div class="c">
-                <form method="POST" class="search-form">
-                    {# This hidden_tag is a CSRF security feature. #}
-                    {{ searchForm.hidden_tag() }}
-                    <div class="title-wrapper input-wrapper flex-column" style="margin-bottom: 0;">
-                        {{ searchForm.searchContent.label() }}
-                        {{searchForm.searchContent()  }}
-                    </div>
-                    <!-- <button type="submit"> -->
-
-                    {{ searchForm.submit(class_="search-form-submit") }}
-                    <!-- </button> -->
-                </form>
-            </div>
             <nav class="menu-area__nav">
-                <a class="menu-area__nav__nav-item" href="{{url_for('add_page')}}">Add</a>
+                <a class="menu-area__nav__nav-item" href="{{url_for('add_page')}}">Add Post</a>
             </nav>
         </div>
     </header>

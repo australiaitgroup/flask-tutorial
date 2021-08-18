@@ -3,7 +3,7 @@ from flask import Flask, render_template, url_for, redirect, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from datetime import datetime
-from forms import AddForm, UpdateForm, DeleteForm, SearchForm
+from forms import AddForm, UpdateForm, DeleteForm
 
 app = Flask(__name__)
 # Key for Forms
@@ -47,37 +47,16 @@ class Post(db.Model):
 
 ##########################################
 
-@app.context_processor
-def inject_SearchForm():
-    searchForm = SearchForm()
-    if searchForm.validate_on_submit():
-        searchContent = searchForm.searchContent.data
-        searchedPosts = Post.query.filter(Post.title.contains(searchContent))
-        print(searchedPosts)
-        return redirect(url_for('search_results_page', posts=searchedPosts))    
-    return dict(
-        searchForm=searchForm,
-    )
-
-
-@app.route('/search')
-def search_results_page():
-    return render_template('search-results-page.html')
-
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    # searchForm = SearchForm()
     posts = Post.query.all()
-    # searchForm = searchForm
-
-
-
     return render_template('home-page.html', posts=posts)
 
 
 @app.route('/add', methods=['GET', 'POST'])
 def add_page():
+    posts = Post.query.all()
     form = AddForm()
 
     if form.validate_on_submit():
@@ -90,7 +69,7 @@ def add_page():
         db.session.commit()
         return redirect(url_for('index'))
 
-    return render_template('add-page.html', form=form)
+    return render_template('add-page.html', form=form, posts=posts)
 
 
 @app.route('/article/<id>')

@@ -30,7 +30,7 @@
                 {% if post.featured %}
                 <div class="categorised-articles-container__single-article">
                     <a class="categorised-articles-container__article-title"
-                        href="{{ url_for('index') }}">{{post.title}}</a>
+                        href="{{ url_for('article_page', id=post.id) }}">{{post.title}}</a>
                     <span class="categorised-articles-container__article-publish-date">{{post.create_Date}}</span>
                 </div>
                 {% endif %}
