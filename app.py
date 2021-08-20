@@ -4,6 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from datetime import datetime
 from forms import AddForm, UpdateForm, DeleteForm
+from flask_restful import Resource, Api
 
 app = Flask(__name__)
 # Key for Forms
@@ -40,10 +41,30 @@ class Post(db.Model):
     def __repr__(self):
         return f"This post's title is {self.title}."
 
+    def json(self):
+        return {'title': self.title, 'content': self.content, 'featured': self.featured, 'create_Date': "{}-{}-{}".format(self.create_Date.year, self.create_Date.month, self.create_Date.day)}
 
 ############################################
 
-        # VIEWS WITH FORMS
+        # SET UP API
+
+
+##########################################
+api = Api(app)
+
+
+class PostResource(Resource):
+
+    def get(self):
+        posts = Post.query.all()
+        return [post.json() for post in posts]
+
+
+api.add_resource(PostResource, '/')
+
+############################################
+
+# VIEWS WITH FORMS
 
 ##########################################
 
