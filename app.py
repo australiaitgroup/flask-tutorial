@@ -60,7 +60,7 @@ class PostResource(Resource):
         return [post.json() for post in posts]
 
 
-api.add_resource(PostResource, '/')
+api.add_resource(PostResource, '/list')
 
 ############################################
 
