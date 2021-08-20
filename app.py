@@ -12,7 +12,7 @@ app.config['SECRET_KEY'] = 'mysecretkey'
 
 ############################################
 
-# SQL DATABASE AND MODELS
+# SQL DATABASE AND MODEL
 
 ##########################################
 basedir = os.path.abspath(os.path.dirname(__file__))
