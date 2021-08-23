@@ -10,6 +10,7 @@
     margin-bottom: 20px;
     justify-content: flex-start;
     align-items: center;
+    gap: 10px;
 }
 
 .flex-column {
@@ -59,4 +60,8 @@
 .new-article input[type='submit']:hover {
     background-color: #2c8cff;
     color: white;
+}
+
+#article-content{
+    margin-bottom: 20px;
 }

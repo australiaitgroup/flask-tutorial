@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='search-results-page.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='update-page.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='article-page.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js"></script>
 </head>
 
 <body>
@@ -57,6 +59,9 @@
             </div>
         </div>
     </footer>
+    <script>
+        let editor = new FroalaEditor('#article-content');
+    </script>
 </body>
 
 </html>

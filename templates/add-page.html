@@ -42,13 +42,15 @@
                     {{form.title()  }}
                 </div>
                 <div class="featured-article-wrapper input-wrapper">
-                    {{ form.featured.label() }}
-                    {{form.featured()  }}
+                    {{ form.featured.label(class_="featured-article") }}
+                    {{form.featured(class_="featured-article")  }}
                 </div>
-                <div class="content-wrapper input-wrapper flex-column">
+                <!-- <div class="content-wrapper input-wrapper flex-column">
                     {{ form.content.label() }}
                     {{ form.content() }}
-                </div>
+                </div> -->
+                <div id="article-content" class="article-content"></div>
+
                 <div class="submit-wrapper">
                     {{ form.submit() }}
                 </div>
@@ -68,7 +70,8 @@
                     {% endif %}
                     {% endfor %}
                 </div>
-                <a class="categorised-articles-container__more-relative-articles" href="{{ url_for('index') }}">More ></a>
+                <a class="categorised-articles-container__more-relative-articles" href="{{ url_for('index') }}">More
+                    ></a>
             </div>
         </section>
     </div>
@@ -98,6 +101,9 @@
         </div>
     </footer>
 
+    <script>
+        let editor = new FroalaEditor('#article-content');
+    </script>
 </body>
 
 </html>
