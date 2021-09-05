@@ -1,6 +1,13 @@
 .article-details {
-    padding: 10px;
-    flex: 1;
+    padding: 96px 15px;
+    max-width: 80rem;
+    margin: 0 auto;
+}
+
+@media only screen and (max-width:767px) {
+    .article-details {
+        padding: 32px 0px;
+    }
 }
 
 .article-details__heading-area h1 {
@@ -9,6 +16,7 @@
 
 .article-details__author {
     letter-spacing: 1px;
+    color: #4a4b65;
 }
 
 .article-details__publish-date {
@@ -18,12 +26,103 @@
     letter-spacing: 1px;
 }
 
+.article-details__info-area {
+    border-top: 1px solid #e9e9f2;
+    border-bottom: 1px solid #e9e9f2;
+    padding: 16px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media only screen and (max-width:767px) {
+    .article-details__info-area {
+        flex-direction: column;
+    }
+}
+
+.article-details__social-media {
+    display: flex;
+    padding-left: 24px;
+    align-items: center;
+    justify-content: center;
+    color: #4a4b65;
+}
+
+@media only screen and (max-width:767px) {
+    .article-details__social-media {
+        margin-top: 20px;
+        padding-left: 0;
+    }
+}
+
+.article-details__social-media span{
+    margin-right: 20px;
+}
+
+@media only screen and (max-width:767px) {
+    .article-details__social-media span{
+        display: none;
+    }
+}
+
+.article-details__social-media a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    border: 1px solid #e5e5ef;
+    border-radius: 8px;
+    margin-right: 8px;
+    transition: background-color 0.2s ease, border 0.2s ease;
+}
+
+.article-details__social-media a:last-child {
+    margin-right: 0px;
+}
+
+.article-details__social-media .svg {
+    fill: #757690;
+    height: 16px;
+    width: 16px;
+    transition: fill 0.2s ease;
+}
+
+.article-details__social-media a:hover .svg {
+    fill: white;
+}
+
+.article-details__social-media a.facebook:hover {
+    background-color: #3b5998;
+    border: 1px solid #3b5998;
+}
+
+.article-details__social-media a.twitter:hover {
+    background-color: #1da1f2;
+    border: 1px solid #1da1f2;
+}
+
+.article-details__social-media a.linkedin:hover {
+    background-color: #0A66C2;
+    border: 1px solid #0A66C2;
+}
+
+.article-details__social-media a.instagram:hover {
+    background-color: #fface9;
+    border: 1px solid #fface9;
+}
+
+.article-details__publish-date .svg{
+    fill: #9e9fb4;
+    height: 14px;
+    width: 14px;
+    margin-right: 8px;
+}
+
 .article-details__content-area {
     margin-top: 10px;
     padding: 30px 0;
-    border-image-source: linear-gradient(to left, #2c8cff, #c8e2f9);
-    border-top: 2px solid;
-    border-image-slice: 1;
 }
 
 .article-details__content-area p {

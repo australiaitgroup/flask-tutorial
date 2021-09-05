@@ -1,3 +1,46 @@
 @import 'style.css';
 @import 'article-list.css';
 @import 'categorised-articles-container.css';
+
+.main-content {
+    display: flex;
+    max-width: 80rem;
+    margin: 0 auto;
+}
+
+@media only screen and (max-width:767px) {
+    .main-content {
+        flex-direction: column;
+        padding: 0 20px;
+    }
+}
+
+.article-list {
+    flex-direction: column;
+}
+
+@media only screen and (max-width:767px) {
+    .article-list__list {
+        padding: 0;
+    }
+}
+
+.article-list h1 {
+    padding: 0 15px;
+}
+
+@media only screen and (max-width:767px) {
+    .article-list h1 {
+        padding: 0;
+    }
+}
+
+.categorised-articles-container {
+    padding: 64px 15px;
+}
+
+@media only screen and (max-width:767px) {
+    .categorised-articles-container {
+        padding: 0 15px 20px 15px;
+    }
+}

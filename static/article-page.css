@@ -1,3 +1,28 @@
 @import 'style.css';
 @import 'categorised-articles-container.css';
 @import 'article-details.css';
+
+.main-content {
+    display: flex;
+    max-width: 80rem;
+    margin: 0 auto;
+}
+
+@media only screen and (max-width:767px) {
+    .main-content {
+        flex-direction: column;
+        padding: 0 20px;
+    }
+}
+
+.categorised-articles-container {
+    padding: 96px 0;
+    background-color: #f7f7fc;
+}
+
+@media only screen and (max-width:767px) {
+    .categorised-articles-container {
+        padding: 0 0 32px 0;
+        background-color: transparent;
+    }
+}

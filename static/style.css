@@ -3,18 +3,14 @@
 @import 'footer.css';
 @import 'button.css';
 
-/********************
- * main content start
- ********************/
-
-.main-content {
-    display: flex;
-    max-width: 75rem;
-    margin: auto;
+@media only screen and (max-width:767px) {
+    .hide-for-mobile {
+        display: none;
+    }
 }
 
-@media only screen and (max-width: 767px) {
-    .main-content {
-        flex-direction: column;
+@media only screen and (min-width:768px) {
+    .hide-for-larger-device {
+        display: none;
     }
 }

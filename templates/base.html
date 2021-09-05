@@ -4,32 +4,109 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>ray's blog | Article Page</title>
-    <!-- <link rel="icon" type="image/png" href="./assets/favicon.jpg" /> -->
-    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.jpg') }}" />
-
-    <!-- <link rel="stylesheet" href="./styles/article-page.css"> -->
-
+    <title>Around Food Blog | Home Page</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='home-page.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='search-results-page.css') }}">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='search-results-page.css') }}"> -->
     <link rel="stylesheet" href="{{ url_for('static', filename='update-page.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='article-page.css') }}">
-    <link href="https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css" rel="stylesheet"
+        type="text/css" />
+
+    <script defer src="./JS/convert-svg.js"></script>
+    <script defer src="./JS/mobile-menu.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js">
+    </script>
+
 </head>
 
 <body>
-    <header>
-        <div class="logo-area">
-            <a class="logo-area__logo" href="{{ url_for('index') }}">
-                <!-- <img src="./assets/logo.jpg"> -->
-                <img src="{{ url_for('static', filename='logo.jpg') }}">
-            </a>
+    <header class="header">
+        <div class="header__container hide-for-mobile">
+            <div class="header__left-area">
+                <div class="header__logo-area">
+                    <a class="header__logo" href="{{ url_for('index') }}">
+                        <img src="{{ url_for('static', filename='logo.png') }}">
+                    </a>
+                </div>
+                <nav class="header__nav">
+                    <a class="header__nav-item current-page" href="{{ url_for('index') }}">Home</a>
+                    <a class="header__nav-item" href="{{ url_for('index') }}">About</a>
+                    <a class="header__nav-item" href="{{url_for('add_page')}}">New Blog</a>
+                    <a class="header__nav-item" href="{{ url_for('index') }}">Contact Us</a>
+                </nav>
+            </div>
+            <div class="header__right-area">
+                <div class="header__search-area">
+                    <form method="GET">
+                        <input type="text" placeholder="Search" name="search">
+                        <button type="submit"><img src="{{ url_for('static', filename='search-purple.png') }}"></button>
+                    </form>
+                </div>
+                <div class="header__social-media">
+                    <a class="facebook" href="https://facebook.com" target="_blank">
+                        <img class="svg" src="{{ url_for('static', filename='facebook.svg') }}">
+                    </a>
+                    <a class="twitter" href="https://twitter.com" target="_blank">
+                        <img class="svg" src="{{ url_for('static', filename='twitter.svg') }}">
+                    </a>
+                    <a class="linkedin" href="https://linkedin.com" target="_blank">
+                        <img class="svg" src="{{ url_for('static', filename='linkedin.svg') }}">
+                    </a>
+                    <a class="instagram" href="https://instagram.com" target="_blank">
+                        <img class="svg" src="{{ url_for('static', filename='instagram.svg') }}">
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="menu-area">
-            <nav class="menu-area__nav">
-                <a class="menu-area__nav__nav-item" href="{{url_for('add_page')}}">Add Post</a>
-            </nav>
+        <div class="header__mobile-nav-container hide-for-larger-device">
+            <button class="header__mobile-menu-hamburger" onclick="openMobileMenu()">
+                <img class="svg" src="{{ url_for('static', filename='menu.svg') }}">
+            </button>
+            <div class="header__mobile-logo-area">
+                <a class="header__mobile-logo" href="{{ url_for('index') }}">
+                    <img src="{{ url_for('static', filename='logo-icon.png') }}">
+                </a>
+            </div>
+            <button class="header__mobile-search-button" onclick="toggleSearchField()">
+                <img src="{{ url_for('static', filename='search-purple.png') }}">
+            </button>
+        </div>
+        <div class="header__mobile-menu-wrapper">
+            <div class="header__mobile-menu-header">
+                <span>Menu</span>
+                <button class="header__mobile-menu-hamburger" onclick="closeMobileMenu()">
+                    <img class="svg" src="{{ url_for('static', filename='close.svg') }}">
+                </button>
+            </div>
+            <div class="header__mobile-details-area">
+                <nav class="header__mobile-nav">
+                    <a class="header__mobile-nav-item current-page" href="{{ url_for('index') }}">Home</a>
+                    <a class="header__mobile-nav-item" href="{{ url_for('index') }}">About</a>
+                    <a class="header__mobile-nav-item" href="{{url_for('add_page')}}">New Blog</a>
+                    <a class="header__mobile-nav-item" href="{{ url_for('index') }}">Contact Us</a>
+                </nav>
+                <div class="header__mobile-social-media">
+                    <a class="facebook" href="https://facebook.com" target="_blank">
+                        <img class="svg" src="{{ url_for('static', filename='facebook.svg') }}">
+                    </a>
+                    <a class="twitter" href="https://twitter.com" target="_blank">
+                        <img class="svg" src="{{ url_for('static', filename='twitter.svg') }}">
+                    </a>
+                    <a class="linkedin" href="https://linkedin.com" target="_blank">
+                        <img class="svg" src="{{ url_for('static', filename='linkedin.svg') }}">
+                    </a>
+                    <a class="instagram" href="https://instagram.com" target="_blank">
+                        <img class="svg" src="{{ url_for('static', filename='instagram.svg') }}">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="header__mobile-search-area">
+            <form method="GET">
+                <input type="text" placeholder="Search" name="search">
+                <button type="submit"><img src="{{ url_for('static', filename='search-purple.png') }}"></button>
+            </form>
         </div>
     </header>
     {% block content %}
@@ -39,29 +116,38 @@
         <div class="footer__top-area">
             <div class="footer__logo-area">
                 <a class="footer__logo" href="{{ url_for('index') }}">
-                    <!-- <img src="./assets/logo.jpg"> -->
-                    <img src="{{ url_for('static', filename='logo.jpg') }}">
+                    <img src="{{ url_for('static', filename='logo-light.png') }}">
                 </a>
             </div>
-            <div class="footer__menu-area">
-                <nav class="footer__nav">
-                    <a class="footer__nav-item" href="{{url_for('add_page')}}">Add New Article</a>
-                </nav>
+            <div class="footer__contact-area">
+                <a class="email" href="mailto:hello@jiangren.com.au" target="_blank">
+                    <img class="svg" src="{{ url_for('static', filename='email.svg') }}">
+                    <span>hello@jiangren.com.au</span>
+                </a>
+                <a class="phone" href="tel: 0421672555" target="_blank">
+                    <img class="svg" src="{{ url_for('static', filename='phone.svg') }}">
+                    <span>0421 672 555</span>
+                </a>
+            </div>
+            <div class="footer__social-media-area">
+                <a class="facebook" href="https://facebook.com" target="_blank">
+                    <img class="svg" src="{{ url_for('static', filename='facebook.svg') }}">
+                </a>
+                <a class="twitter" href="https://twitter.com" target="_blank">
+                    <img class="svg" src="{{ url_for('static', filename='twitter.svg') }}">
+                </a>
+                <a class="linkedin" href="https://linkedin.com" target="_blank">
+                    <img class="svg" src="{{ url_for('static', filename='linkedin.svg') }}">
+                </a>
+                <a class="instagram" href="https://instagram.com" target="_blank">
+                    <img class="svg" src="{{ url_for('static', filename='instagram.svg') }}">
+                </a>
             </div>
         </div>
         <div class="footer__bottom-area">
-            <span class="footer__copyright">©2021 ray's blog</span>
-            <div class="footer__media-links">
-                <a href="https://www.linkedin.com/in/xinran-ma/">
-                    <!-- <img src="./assets/linkedin.png"> -->
-                    <img src="{{ url_for('static', filename='linkedin.png') }}">
-                </a>
-            </div>
+            <span class="footer__copyright">© 2021 All rights reserved.</span>
         </div>
     </footer>
-    <script>
-        let editor = new FroalaEditor('#article-content');
-    </script>
 </body>
 
 </html>

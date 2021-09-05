@@ -1,0 +1,57 @@
+.hero-banner {
+
+}
+
+.hero-banner__container {
+
+}
+
+.hero-banner__single-banner {
+    background-image: url("./hero-bg.jpg");
+    height: 600px;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media only screen and (max-width:767px) {
+    .hero-banner__single-banner {
+        height: 250px;
+    }
+}
+
+.hero-banner__content-wrapper {
+    max-width: 80rem;
+    width: 100%;
+    padding: 10px;
+    margin: auto;
+}
+
+@media only screen and (max-width:767px) {
+    .hero-banner__content-wrapper {
+        padding: 20px;
+    }
+}
+
+.hero-banner__title {
+    margin-bottom: 40px;
+    font-size: 48px;
+    max-width: 50%;
+    color: #4a4b65;
+    font-weight: 600;
+}
+
+@media only screen and (max-width:767px) {
+    .hero-banner__title {
+        margin-bottom: 20px;
+        font-size: 1.3rem;
+        max-width: 70%;
+    }
+}
+
+.hero-banner__btn {
+    
+}

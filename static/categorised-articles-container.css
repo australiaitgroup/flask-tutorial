@@ -1,65 +1,71 @@
 .categorised-articles-container {
-    flex: 0 0 35%;
-    padding: 10px;
+    flex: 0 0 25%;
+    padding: 0 15px;
     display: flex;
     flex-direction: column;
 }
 
-.categorised-articles-container__articles-card {
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 0 15px 2px #ececec;
-    padding: 25px 20px;
-    margin-bottom: 50px;
-}
-
-@media only screen and (max-width: 767px) {
-    .categorised-articles-container__articles-card {
-        margin-bottom: 20px;
+@media only screen and (max-width:767px) {
+    .categorised-articles-container {
+        flex: 0 0 auto;
+        padding: 20px;
     }
 }
 
-.categorised-articles-container__articles-card:last-child {
-    margin-bottom: 0px;
+.categorised-articles-container__articles-card {
+    padding-left: 24px;
 }
 
-.categorised-articles-container__articles-card h2 {
+@media only screen and (max-width:767px) {
+    .categorised-articles-container__articles-card {
+        padding-left: 0px;
+    }
+}
+
+.categorised-articles-container h2 {
     font-size: 18px;
-    padding-bottom: 30px;
-    border-image-source: linear-gradient(to left, #2c8cff, #c8e2f9);;
-    border-bottom: 2px solid;
-    border-image-slice: 1;
-    margin-bottom: 30px;
-}
-
-.categorised-articles-container__articles-list {
-    display: flex;
-    flex-direction: column;
+    margin-bottom: 24px;
 }
 
 .categorised-articles-container__single-article {
     display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-bottom: 24px;
+}
+
+.categorised-articles-container__single-article:last-child {
+    margin-bottom: 0;
+}
+
+.categorised-articles-container__image {
+    display: flex;
+    cursor: pointer;
+}
+
+.categorised-articles-container__image img {
+    max-width: 64px;
+    max-height: 64px;
+    border-radius: 12px;
+}
+
+.categorised-articles-container__article-content {
+    padding-left: 12px;
 }
 
 .categorised-articles-container__article-title {
+    color: rgb(74, 75, 101);
     text-decoration: none;
-    color: #000000;
-    margin-bottom: 10px;
-    letter-spacing: 1px;
-}
-
-.categorised-articles-container__article-publish-date {
-    font-size: 12px;
+    transition: color 0.3s ease;
+    margin-bottom: 4px;
     display: block;
-    color: #636363;
-    letter-spacing: 1px;
 }
 
-.categorised-articles-container__more-relative-articles {
-    text-decoration: none;
-    color: #2d8cff;
-    letter-spacing: 1px;
-    text-align: center;
+.categorised-articles-container__article-title:hover {
+    color: rgb(118, 109, 244);
+}
+
+.categorised-articles-container__article-publisher {
+    font-size: 12px;
+    color: rgb(158, 159, 180);
 }

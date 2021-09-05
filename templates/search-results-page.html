@@ -3,9 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1">
-        <title>Around Food Blog | Article Page</title>
+        <title>Around Food Blog | Search Results Page</title>
         <link rel="icon" type="image/png" href="./assets/favicon.png"/>
-        <link rel="stylesheet" href="./styles/article-page.css">
+        <link rel="stylesheet" href="./styles/search-results-page.css">
         <script defer src="./JS/convert-svg.js"></script>
         <script defer src="./JS/mobile-menu.js"></script>
     </head>
@@ -99,45 +99,76 @@
             </div>
         </header>
         <div class="main-content">
-            <div class="article-details">
-                <div class="article-details__heading-area">
-                    <h1>Unimelb 墨尔本大学| 拯救让你头秃的 Presentation !这些衔接语句助你一臂之力~</h1>
-                </div>
-                <div class="article-details__info-area">
-                    <div class="article-details__article-info">
-                        <span class="article-details__author">Ray Ma</span>
-                    <span class="article-details__publish-date">
-                        <img class="svg" src="./assets/calendar.svg"/>
-                        01/08/2021
-                    </span>
-                    </div>
-                    <div class="article-details__social-media">
-                        <span>Share post:</span>
-                        <a class="facebook" href="https://facebook.com" target="_blank">
-                            <img class="svg" src="assets/facebook.svg">
+            <section class="article-list">
+                <h1>Search Results:</h2>
+                <div class="article-list__list">
+                    <!-- Single Article Block -->
+                    <article class="article-list__single-article">
+                        <a class="article-list__left-column" href="">
+                            <span class="article-list__tag pink-tag">Seafood</span>
+                            <img src="assets/post-banner-01.jpg">
                         </a>
-                        <a class="twitter" href="https://twitter.com" target="_blank">
-                            <img class="svg" src="assets/twitter.svg">
+                        <div class="article-list__right-column">
+                            <span class="article-list__publish-date"><img class="svg" src="./assets/calendar.svg"/> 02/08/2021</span>
+                            <a href=""><h3 class="article-list__article-title">Asian Chilli Garlic Shrimps</h3></a>
+                            <p>Dignissim suspendisse in est ante in nibh mauris cursus mattis. Tempor id eu nisl nunc mi. Scelerisque eu ultrices vitae auctor. Ut faucibus pulvinar elementum integer. Sed vulputate mi sit amet mauris commodo. In eu mi bibendum neque…</p>
+                        </div>
+                    </article>
+                    <!-- Single Article Block End -->
+                    <!-- Single Article Block -->
+                    <article class="article-list__single-article">
+                        <a class="article-list__left-column" href="">
+                            <span class="article-list__tag orange-tag">Desserts</span>
+                            <img src="assets/post-banner-02.jpg">
                         </a>
-                        <a class="linkedin" href="https://linkedin.com" target="_blank">
-                            <img class="svg" src="assets/linkedin.svg">
+                        <div class="article-list__right-column">
+                            <span class="article-list__publish-date"><img class="svg" src="./assets/calendar.svg"/> 02/08/2021</span>
+                            <a href=""><h3 class="article-list__article-title">Belgian Waffles With Triple Berry Sauce</h3></a>
+                            <p>Dignissim suspendisse in est ante in nibh mauris cursus mattis. Tempor id eu nisl nunc mi. Scelerisque eu ultrices vitae auctor. Ut faucibus pulvinar elementum integer. Sed vulputate mi sit amet mauris commodo. In eu mi bibendum neque…</p>
+                        </div>
+                    </article>
+                    <!-- Single Article Block End -->
+                    <!-- Single Article Block -->
+                    <article class="article-list__single-article">
+                        <a class="article-list__left-column" href="">
+                            <span class="article-list__tag green-tag">Salad</span>
+                            <img src="assets/post-banner-03.jpg">
                         </a>
-                        <a class="instagram" href="https://instagram.com" target="_blank">
-                            <img class="svg" src="assets/instagram.svg">
+                        <div class="article-list__right-column">
+                            <span class="article-list__publish-date"><img class="svg" src="./assets/calendar.svg"/> 02/08/2021</span>
+                            <a href=""><h3 class="article-list__article-title">Vegan Bowl With Avocado, Cabbage And Quinoa</h3></a>
+                            <p>Dignissim suspendisse in est ante in nibh mauris cursus mattis. Tempor id eu nisl nunc mi. Scelerisque eu ultrices vitae auctor. Ut faucibus pulvinar elementum integer. Sed vulputate mi sit amet mauris commodo. In eu mi bibendum neque…</p>
+                        </div>
+                    </article>
+                    <!-- Single Article Block End -->
+                    <!-- Single Article Block -->
+                    <article class="article-list__single-article">
+                        <a class="article-list__left-column" href="">
+                            <span class="article-list__tag purple-tag">Vegan</span>
+                            <img src="assets/post-banner-04.jpg">
                         </a>
-                    </div>
+                        <div class="article-list__right-column">
+                            <span class="article-list__publish-date"><img class="svg" src="./assets/calendar.svg"/> 02/08/2021</span>
+                            <a href=""><h3 class="article-list__article-title">Toast In A Bowl</h3></a>
+                            <p>Dignissim suspendisse in est ante in nibh mauris cursus mattis. Tempor id eu nisl nunc mi. Scelerisque eu ultrices vitae auctor. Ut faucibus pulvinar elementum integer. Sed vulputate mi sit amet mauris commodo. In eu mi bibendum neque…</p>
+                        </div>
+                    </article>
+                    <!-- Single Article Block End -->
+                    <!-- Single Article Block -->
+                    <article class="article-list__single-article">
+                        <a class="article-list__left-column" href="">
+                            <span class="article-list__tag pink-tag">Asian</span>
+                            <img src="assets/post-banner-05.jpg">
+                        </a>
+                        <div class="article-list__right-column">
+                            <span class="article-list__publish-date"><img class="svg" src="./assets/calendar.svg"/> 02/08/2021</span>
+                            <a href=""><h3 class="article-list__article-title">Vegan Stir Fry With Rice Vermicelli</h3></a>
+                            <p>Dignissim suspendisse in est ante in nibh mauris cursus mattis. Tempor id eu nisl nunc mi. Scelerisque eu ultrices vitae auctor. Ut faucibus pulvinar elementum integer. Sed vulputate mi sit amet mauris commodo. In eu mi bibendum neque…</p>
+                        </div>
+                    </article>
+                    <!-- Single Article Block End -->
                 </div>
-                <div class="article-details__content-area">
-                    <p>对于咱们留学生来说Presentation一直是让大家头痛有头秃的一大难题!</p>
-                    <p>不仅要在内容上做大量研究, ppt样式也要精雕细琢~ 全部完成后, 展示当天的演讲更重中之重! (按住自己紧张颤抖的小手手…</p>
-                    <p>课代表也了解到现在大部分澳洲留学生只能在国内上网课, 英文环境约等于零那这纯英pre更是压力山大!</p>
-                    <p>别急别急~课代表特意整理了这份"Presentation必备衔接语句"不仅解决你的英语难题, 更是帮你理清思路的必备法宝~</p>
-                </div>
-                <div class="article-details__extra-operation-area">
-                    <button class="article-details__btn btn btn-primary" onclick="editArticle()">Edit Article</button>
-                    <button class="article-details__btn btn btn-secondary" onclick="deleteArticle()">Delete Article</button>
-                </div>
-            </div>
+            </section>
             <section class="categorised-articles-container">
                 <div class="categorised-articles-container__articles-card">
                     <h2>Featured recipes</h2>
@@ -209,18 +240,5 @@
                 <span class="footer__copyright">© 2021 All rights reserved.</span>
             </div>
         </footer>
-        <script>
-            function deleteArticle() {
-                const returnMsg = confirm("Do you really want to delete this article?");
-
-                if(returnMsg === true) {
-                    // Delete this article
-                }
-            }
-
-            function editArticle() {
-                // redirect to the update-page with article id
-            }
-        </script>
     </body>
 </html>
