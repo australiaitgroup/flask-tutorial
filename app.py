@@ -8,7 +8,7 @@ from flask_restful import Resource, Api
 from picture_handler import add_banner_pic
 
 app = Flask(__name__)
-# Key for Forms
+# Key for Forms 
 app.config['SECRET_KEY'] = 'mysecretkey'
 
 ############################################
