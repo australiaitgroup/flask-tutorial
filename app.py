@@ -5,6 +5,7 @@ from flask_migrate import Migrate
 from datetime import datetime
 from forms import AddForm, UpdateForm, DeleteForm
 from flask_restful import Resource, Api
+from picture_handler import add_banner_pic
 
 app = Flask(__name__)
 # Key for Forms
@@ -29,20 +30,25 @@ class Post(db.Model):
     __tablename__ = 'posts'
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.Text)
-    content = db.Column(db.Text)
+    author = db.Column(db.Text)
+    editordata = db.Column(db.Text)
     featured = db.Column(db.Boolean, default=True, nullable=False)
     create_Date = db.Column(db.DateTime(), default=datetime.utcnow)
+    banner_image = db.Column(
+        db.String(64),  default='post-banner-01.jpg')
 
-    def __init__(self, title, content, featured):
+    def __init__(self, title, editordata, featured, author, banner_image):
         self.title = title
-        self.content = content
+        self.editordata = editordata
         self.featured = featured
+        self.author = author
+        self.banner_image = banner_image
 
     def __repr__(self):
         return f"This post's title is {self.title}."
 
     def json(self):
-        return {'title': self.title, 'content': self.content, 'featured': self.featured, 'create_Date': "{}-{}-{}".format(self.create_Date.year, self.create_Date.month, self.create_Date.day)}
+        return {'title': self.title, 'editordata': self.editordata, 'featured': self.featured, 'create_Date': "{}-{}-{}".format(self.create_Date.year, self.create_Date.month, self.create_Date.day)}
 
 ############################################
 
@@ -77,20 +83,21 @@ def index():
 
 @app.route('/add', methods=['GET', 'POST'])
 def add_page():
-    posts = Post.query.all()
     form = AddForm()
-
-    if form.validate_on_submit():
+    if form.is_submitted():
         title = form.title.data
-        content = form.content.data
+        editordata = form.content.data
         featured = form.featured.data
+        author = form.author.data
+        banner_image = add_banner_pic(form.banner_image.data, title)
+
         # Add new post to database
-        post = Post(title, content, featured)
+        post = Post(title, editordata, featured, author, banner_image)
         db.session.add(post)
         db.session.commit()
         return redirect(url_for('index'))
 
-    return render_template('add-page.html', form=form, posts=posts)
+    return render_template('add-page.html', form=form)
 
 
 @app.route('/article/<id>')
@@ -105,17 +112,19 @@ def update_page(id):
     form = UpdateForm()
     post = Post.query.get(id)
     posts = Post.query.all()
-    if form.validate_on_submit():
+    if form.is_submitted():
         post.title = form.title.data
-        post.content = form.content.data
+        post.author = form.author.data
+        post.editordata = form.content.data
         post.featured = form.featured.data
         db.session.commit()
         return redirect(url_for('index'))
 
     elif request.method == 'GET':
         form.title.data = post.title
-        form.content.data = post.content
+        form.content.data = post.editordata
         form.featured.data = post.featured
+        form.author.data = post.author
 
     return render_template('update-page.html', post=post, posts=posts, form=form)
 

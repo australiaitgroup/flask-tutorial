@@ -10,13 +10,16 @@
     <!-- <link rel="stylesheet" href="{{ url_for('static', filename='search-results-page.css') }}"> -->
     <link rel="stylesheet" href="{{ url_for('static', filename='update-page.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='article-page.css') }}">
-    <link href="https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css" rel="stylesheet"
-        type="text/css" />
 
+    <!-- include summernote css/js -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    
     <script defer src="./JS/convert-svg.js"></script>
     <script defer src="./JS/mobile-menu.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js">
-    </script>
 
 </head>
 
@@ -148,6 +151,13 @@
             <span class="footer__copyright">© 2021 All rights reserved.</span>
         </div>
     </footer>
+    <script defer>
+        $(document).ready(function () {
+            $('#summernote').summernote({
+                height: 300
+            });
+        });
+    </script>
 </body>
 
 </html>

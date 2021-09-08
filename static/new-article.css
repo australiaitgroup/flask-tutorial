@@ -1,83 +1,94 @@
 .new-article {
-    flex: 0 0 100%;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
+  flex: 0 0 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.content-wrapper__update {
+  flex: 1 0 100% !important;
 }
 
+.title-wrapper__update {
+  flex: 0 0 60% !important;
+}
+
+.author-wrapper__update {
+  flex: 0 0 60% !important;
+}
 @media only screen and (max-width: 767px) {
-    .new-article {
-        padding: 20px;
-        width: 100%;
-    }
+  .new-article {
+    padding: 20px;
+    width: 100%;
+  }
 }
 
 .new-article form {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .input-wrapper {
-    display: flex;
-    margin-bottom: 20px;
-    justify-content: flex-start;
-    align-items: center;
-    flex: 0 0 50%;
+  display: flex;
+  margin-bottom: 20px;
+  justify-content: flex-start;
+  align-items: center;
+  flex: 0 0 50%;
 }
 
 @media only screen and (max-width: 767px) {
-    .input-wrapper {
-        flex: 1 0 100%;
-    }
+  .input-wrapper {
+    flex: 1 0 100%;
+  }
 }
 
 .flex-column {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0 20px;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 20px;
 }
 
 @media only screen and (max-width: 767px) {
-    .flex-column {
-        align-items: stretch;
-        padding: 0;
-    }
+  .flex-column {
+    align-items: stretch;
+    padding: 0;
+  }
 }
 
 .featured-article-wrapper {
-    flex-direction: row;
+  flex-direction: row;
 }
 
-.new-article input[type='text'], .new-article select {
-    width: 100%;
-    border: 1px solid #cccccc;
-    border-radius: 6px;
-    padding: 8px 10px;
-    font-size: 16px;
-    line-height: 16px;
-    color: #252525;
+.new-article input[type="text"],
+.new-article select {
+  width: 100%;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 16px;
+  line-height: 16px;
+  color: #252525;
 }
 
-.new-article input[type='file'] {
-
+.new-article input[type="file"] {
 }
 
 @media only screen and (max-width: 767px) {
-    .new-article input[type='text'] {
-        width: 100%;
-        max-width: unset;
-    }
+  .new-article input[type="text"] {
+    width: 100%;
+    max-width: unset;
+  }
 }
 
-.new-article input[type='checkbox'] {
-    margin-right: 10px;
+.new-article input[type="checkbox"] {
+  margin-right: 10px;
 }
 
 .new-article .input-wrapper label {
-    letter-spacing: 1px;
-    font-size: 15px;
-    margin-bottom: 1px;
-    color: #5d5d5d;
+  letter-spacing: 1px;
+  font-size: 15px;
+  margin-bottom: 1px;
+  color: #5d5d5d;
 }
 
 /* .new-article input[type='submit'] {

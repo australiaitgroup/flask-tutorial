@@ -84,61 +84,58 @@
     </section>
     <section class="article-list">
         <div class="article-list__list">
+            {% if posts|length != 0 %}
             <!-- Single Article Block -->
+            {% for post in posts  %}
             <article class="article-list__single-article">
-                <a class="article-list__left-column" href="">
-                    <span class="article-list__tag pink-tag">Seafood</span>
-                    <img src="{{ url_for('static', filename='post-banner-01.jpg') }}">
+                <a class="article-list__left-column" href="{{ url_for('article_page', id=post.id) }}">
+                    <span class="article-list__tag pink-tag">Post</span>
+                    <img src="{{ url_for('static', filename='profile_pics/'+post.banner_image) }}">
                 </a>
                 <div class="article-list__right-column">
                     <span class="article-list__publish-date"><img class="svg"
                             src="{{ url_for('static', filename='calendar.svg') }}" />
-                        02/08/2021</span>
-                    <a href="">
-                        <h3 class="article-list__article-title">Asian Chilli Garlic Shrimps</h3>
+                        {{ post.create_Date.date()}}</span>
+                    <a href="{{ url_for('article_page', id=post.id) }}">
+                        <h3 class="article-list__article-title">{{post.title}}</h3>
                     </a>
-                    <p>Dignissim suspendisse in est ante in nibh mauris cursus mattis. Tempor id eu nisl nunc mi.
-                        Scelerisque eu ultrices vitae auctor. Ut faucibus pulvinar elementum integer. Sed vulputate mi
-                        sit amet mauris commodo. In eu mi bibendum neque…</p>
+                    <p>{{post.editordata|safe}}</p>
                 </div>
             </article>
+            {% endfor %}
             <!-- Single Article Block End -->
+            {% else %}
+            <div>No Post</div>
+            {% endif %}
 
         </div>
         <section class="categorised-articles-container">
             <div class="categorised-articles-container__articles-card">
                 <h2>Featured recipes</h2>
                 <div class="categorised-articles-container__articles-list">
+                    {% if posts|length != 0 %}
+                    <!-- Single Article Block -->
+                    {% for post in posts  %}
+                    {% if post.featured %}
                     <div class="categorised-articles-container__single-article">
-                        <a class="categorised-articles-container__image" href="#">
-                            <img src="{{ url_for('static', filename='featured-recipes-small-01.jpg') }}">
+                        <a class="categorised-articles-container__image"
+                            href="{{ url_for('article_page', id=post.id) }}">
+                            <img src="{{ url_for('static', filename='profile_pics/'+post.banner_image) }}">
                         </a>
                         <div class="categorised-articles-container__article-content">
-                            <a class="categorised-articles-container__article-title" href="./home.html">Sweet Cream
-                                Cupcake</a>
-                            <span class="categorised-articles-container__article-publisher">by Amelie Mayer</span>
+                            <a class="categorised-articles-container__article-title"
+                                href="{{ url_for('article_page', id=post.id) }}">{{post.title}}</a>
+                            <span class="categorised-articles-container__article-publisher">by {{post.author}}</span>
                         </div>
                     </div>
-                    <div class="categorised-articles-container__single-article">
-                        <a class="categorised-articles-container__image" href="#">
-                            <img src="{{ url_for('static', filename='featured-recipes-small-02.jpg') }}">
-                        </a>
-                        <div class="categorised-articles-container__article-content">
-                            <a class="categorised-articles-container__article-title" href="./home.html">Sweet Cream
-                                Cupcake</a>
-                            <span class="categorised-articles-container__article-publisher">by Amelie Mayer</span>
-                        </div>
-                    </div>
-                    <div class="categorised-articles-container__single-article">
-                        <a class="categorised-articles-container__image" href="#">
-                            <img src="{{ url_for('static', filename='featured-recipes-small-03.jpg') }}">
-                        </a>
-                        <div class="categorised-articles-container__article-content">
-                            <a class="categorised-articles-container__article-title" href="./home.html">Sweet Cream
-                                Cupcake</a>
-                            <span class="categorised-articles-container__article-publisher">by Amelie Mayer</span>
-                        </div>
-                    </div>
+                    {% endif %}
+                    {% endfor %}
+                    <!-- Single Article Block End -->
+                    {% else %}
+                    <div>No Post</div>
+                    {% endif %}
+
+
                 </div>
             </div>
         </section>

@@ -1,226 +1,74 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <title>Around Food Blog | Article Page</title>
-        <link rel="icon" type="image/png" href="./assets/favicon.png"/>
-        <link rel="stylesheet" href="./styles/article-page.css">
-        <script defer src="./JS/convert-svg.js"></script>
-        <script defer src="./JS/mobile-menu.js"></script>
-    </head>
-    <body>
-        <header class="header">
-            <div class="header__container hide-for-mobile">
-                <div class="header__left-area">
-                    <div class="header__logo-area">
-                        <a class="header__logo" href="./home-page.html">
-                            <img src="./assets/logo.png">
-                        </a>
-                    </div>
-                    <nav class="header__nav">
-                        <a class="header__nav-item current-page" href="./home-page.html">Home</a> 
-                        <a class="header__nav-item" href="./home-page.html">About</a>
-                        <a class="header__nav-item" href="./add-page.html">New Blog</a>
-                        <a class="header__nav-item" href="./home-page.html">Contact Us</a>
-                    </nav>
-                </div>
-                <div class="header__right-area">
-                    <div class="header__search-area">
-                        <form method="GET">
-                            <input type="text" placeholder="Search" name="search">
-                            <button type="submit"><img src="assets/search-purple.png"></button>
-                        </form>
-                    </div>
-                    <div class="header__social-media">
-                        <a class="facebook" href="https://facebook.com" target="_blank">
-                            <img class="svg" src="./assets/facebook.svg">
-                        </a>
-                        <a class="twitter" href="https://twitter.com" target="_blank">
-                            <img class="svg" src="./assets/twitter.svg">
-                        </a>
-                        <a class="linkedin" href="https://linkedin.com" target="_blank">
-                            <img class="svg" src="./assets/linkedin.svg">
-                        </a>
-                        <a class="instagram" href="https://instagram.com" target="_blank">
-                            <img class="svg" src="./assets/instagram.svg">
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="header__mobile-nav-container hide-for-larger-device">
-                <button class="header__mobile-menu-hamburger" onclick="openMobileMenu()">
-                    <img class="svg" src="./assets/menu.svg">
-                </button>
-                <div class="header__mobile-logo-area">
-                    <a class="header__mobile-logo" href="./home-page.html">
-                        <img src="./assets/logo-icon.png">
-                    </a>
-                </div>
-                <button class="header__mobile-search-button" onclick="toggleSearchField()">
-                    <img src="./assets/search-purple.png">
-                </button>
-            </div>
-            <div class="header__mobile-menu-wrapper">
-                <div class="header__mobile-menu-header">
-                    <span>Menu</span>
-                    <button class="header__mobile-menu-hamburger" onclick="closeMobileMenu()">
-                        <img class="svg" src="./assets/close.svg">
-                    </button>
-                </div>
-                <div class="header__mobile-details-area">
-                    <nav class="header__mobile-nav">
-                        <a class="header__mobile-nav-item current-page" href="./home-page.html">Home</a> 
-                        <a class="header__mobile-nav-item" href="./home-page.html">About</a>
-                        <a class="header__mobile-nav-item" href="./add-page.html">New Blog</a>
-                        <a class="header__mobile-nav-item" href="./home-page.html">Contact Us</a>
-                    </nav>
-                    <div class="header__mobile-social-media">
-                        <a class="facebook" href="https://facebook.com" target="_blank">
-                            <img class="svg" src="./assets/facebook.svg">
-                        </a>
-                        <a class="twitter" href="https://twitter.com" target="_blank">
-                            <img class="svg" src="./assets/twitter.svg">
-                        </a>
-                        <a class="linkedin" href="https://linkedin.com" target="_blank">
-                            <img class="svg" src="./assets/linkedin.svg">
-                        </a>
-                        <a class="instagram" href="https://instagram.com" target="_blank">
-                            <img class="svg" src="./assets/instagram.svg">
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="header__mobile-search-area">
-                <form method="GET">
-                    <input type="text" placeholder="Search" name="search">
-                    <button type="submit"><img src="assets/search-purple.png"></button>
-                </form>
-            </div>
-        </header>
-        <div class="main-content">
-            <div class="article-details">
-                <div class="article-details__heading-area">
-                    <h1>Unimelb 墨尔本大学| 拯救让你头秃的 Presentation !这些衔接语句助你一臂之力~</h1>
-                </div>
-                <div class="article-details__info-area">
-                    <div class="article-details__article-info">
-                        <span class="article-details__author">Ray Ma</span>
-                    <span class="article-details__publish-date">
-                        <img class="svg" src="./assets/calendar.svg"/>
-                        01/08/2021
-                    </span>
-                    </div>
-                    <div class="article-details__social-media">
-                        <span>Share post:</span>
-                        <a class="facebook" href="https://facebook.com" target="_blank">
-                            <img class="svg" src="assets/facebook.svg">
-                        </a>
-                        <a class="twitter" href="https://twitter.com" target="_blank">
-                            <img class="svg" src="assets/twitter.svg">
-                        </a>
-                        <a class="linkedin" href="https://linkedin.com" target="_blank">
-                            <img class="svg" src="assets/linkedin.svg">
-                        </a>
-                        <a class="instagram" href="https://instagram.com" target="_blank">
-                            <img class="svg" src="assets/instagram.svg">
-                        </a>
-                    </div>
-                </div>
-                <div class="article-details__content-area">
-                    <p>对于咱们留学生来说Presentation一直是让大家头痛有头秃的一大难题!</p>
-                    <p>不仅要在内容上做大量研究, ppt样式也要精雕细琢~ 全部完成后, 展示当天的演讲更重中之重! (按住自己紧张颤抖的小手手…</p>
-                    <p>课代表也了解到现在大部分澳洲留学生只能在国内上网课, 英文环境约等于零那这纯英pre更是压力山大!</p>
-                    <p>别急别急~课代表特意整理了这份"Presentation必备衔接语句"不仅解决你的英语难题, 更是帮你理清思路的必备法宝~</p>
-                </div>
-                <div class="article-details__extra-operation-area">
-                    <button class="article-details__btn btn btn-primary" onclick="editArticle()">Edit Article</button>
-                    <button class="article-details__btn btn btn-secondary" onclick="deleteArticle()">Delete Article</button>
-                </div>
-            </div>
-            <section class="categorised-articles-container">
-                <div class="categorised-articles-container__articles-card">
-                    <h2>Featured recipes</h2>
-                    <div class="categorised-articles-container__articles-list">
-                        <div class="categorised-articles-container__single-article">
-                            <a class="categorised-articles-container__image" href="#">
-                                <img src="./assets/featured-recipes-small-01.jpg">
-                            </a>
-                            <div class="categorised-articles-container__article-content">
-                                <a class="categorised-articles-container__article-title" href="./home.html">Sweet Cream Cupcake</a>
-                                <span class="categorised-articles-container__article-publisher">by Amelie Mayer</span>
-                            </div>
-                        </div>
-                        <div class="categorised-articles-container__single-article">
-                            <a class="categorised-articles-container__image" href="#">
-                                <img src="./assets/featured-recipes-small-02.jpg">
-                            </a>
-                            <div class="categorised-articles-container__article-content">
-                                <a class="categorised-articles-container__article-title" href="./home.html">Sweet Cream Cupcake</a>
-                                <span class="categorised-articles-container__article-publisher">by Amelie Mayer</span>
-                            </div>
-                        </div>
-                        <div class="categorised-articles-container__single-article">
-                            <a class="categorised-articles-container__image" href="#">
-                                <img src="./assets/featured-recipes-small-03.jpg">
-                            </a>
-                            <div class="categorised-articles-container__article-content">
-                                <a class="categorised-articles-container__article-title" href="./home.html">Sweet Cream Cupcake</a>
-                                <span class="categorised-articles-container__article-publisher">by Amelie Mayer</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+{% extends "base.html" %}
+{% block content %}
+<div class="main-content">
+    <div class="article-details">
+        <div class="article-details__heading-area">
+            <h1>{{post.title}}</h1>
         </div>
-        <footer class="footer">
-            <div class="footer__top-area">
-                <div class="footer__logo-area">
-                    <a class="footer__logo" href="home.html">
-                        <img src="./assets/logo-light.png">
-                    </a>
-                </div>
-                <div class="footer__contact-area">
-                    <a class="email" href="mailto:hello@jiangren.com.au" target="_blank">
-                        <img class="svg" src="assets/email.svg">
-                        <span>hello@jiangren.com.au</span>
-                    </a>
-                    <a class="phone" href="tel: 0421672555" target="_blank">
-                        <img class="svg" src="assets/phone.svg">
-                        <span>0421 672 555</span>
-                    </a>
-                </div>
-                <div class="footer__social-media-area">
-                    <a class="facebook" href="https://facebook.com" target="_blank">
-                        <img class="svg" src="assets/facebook.svg">
-                    </a>
-                    <a class="twitter" href="https://twitter.com" target="_blank">
-                        <img class="svg" src="assets/twitter.svg">
-                    </a>
-                    <a class="linkedin" href="https://linkedin.com" target="_blank">
-                        <img class="svg" src="assets/linkedin.svg">
-                    </a>
-                    <a class="instagram" href="https://instagram.com" target="_blank">
-                        <img class="svg" src="assets/instagram.svg">
-                    </a>
-                </div>
-            </div>
-            <div class="footer__bottom-area">
-                <span class="footer__copyright">© 2021 All rights reserved.</span>
-            </div>
-        </footer>
-        <script>
-            function deleteArticle() {
-                const returnMsg = confirm("Do you really want to delete this article?");
+        <div class="article-details__info-area">
+            <div class="article-details__article-info">
+                <span class="article-details__author">{{post.author}}</span>
+                <span class="article-details__publish-date">
+                    <img class="svg" src="{{ url_for('static', filename='calendar.svg') }}" />
 
-                if(returnMsg === true) {
-                    // Delete this article
-                }
-            }
+                    {{post.create_Date.date()}}
+                </span>
+            </div>
+            <div class="article-details__social-media">
+                <span>Share post:</span>
+                <a class="facebook" href="https://facebook.com" target="_blank">
+                    <img class="svg" src="{{ url_for('static', filename='facebook.svg') }}">
+                </a>
+                <a class="twitter" href="https://twitter.com" target="_blank">
+                    <img class="svg" src="{{ url_for('static', filename='twitter.svg') }}">
+                </a>
+                <a class="linkedin" href="https://linkedin.com" target="_blank">
+                    <img class="svg" src="{{ url_for('static', filename='linkedin.svg') }}">
+                </a>
+                <a class="instagram" href="https://instagram.com" target="_blank">
+                    <img class="svg" src="{{ url_for('static', filename='instagram.svg') }}">
+                </a>
+            </div>
+        </div>
+        <div class="article-details__content-area">
+            {{post.editordata|safe}}
+        </div>
+        <div class="article-details__extra-operation-area">
+            <a class="article-details__btn btn btn-primary" href="{{ url_for('update_page', id=post.id) }}">Edit
+                Article</a>
+            <a class="article-details__btn btn btn-secondary"
+                href="{{ url_for('delete_page', id=post.id) }}">Delete Article</a>
+        </div>
+    </div>
+    <section class="categorised-articles-container">
+        <div class="categorised-articles-container__articles-card">
+            <h2>Featured recipes</h2>
+            <div class="categorised-articles-container__articles-list">
+                {% if posts|length != 0 %}
+                <!-- Single Article Block -->
+                {% for post in posts  %}
+                {% if post.featured %}
+                <div class="categorised-articles-container__single-article">
+                    <a class="categorised-articles-container__image" href="{{ url_for('article_page', id=post.id) }}">
+                        <img src="{{ url_for('static', filename='profile_pics/'+post.banner_image) }}">
+                    </a>
+                    <div class="categorised-articles-container__article-content">
+                        <a class="categorised-articles-container__article-title"
+                            href="{{ url_for('article_page', id=post.id) }}">{{post.title}}</a>
+                        <span class="categorised-articles-container__article-publisher">by {{post.author}}</span>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+                <!-- Single Article Block End -->
+                {% else %}
+                <div>No Post</div>
+                {% endif %}
 
-            function editArticle() {
-                // redirect to the update-page with article id
-            }
-        </script>
-    </body>
-</html>
+
+            </div>
+        </div>
+    </section>
+</div>
+
+{% endblock %}
