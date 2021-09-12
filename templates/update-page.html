@@ -12,6 +12,11 @@
                 {{ form.author.label() }}
                 {{form.author()  }}
             </div>
+            <div class="banner-image-wrapper input-wrapper flex-column">
+                <!-- <label for="banner_image">Banner Image:</label> -->
+                {{ form.banner_image.label() }}
+                {{form.banner_image()  }}
+            </div>            
             <div class="content-wrapper__update input-wrapper flex-column">
                 {{ form.content.label() }}
                 {{form.content(id="summernote")  }}

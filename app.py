@@ -8,7 +8,7 @@ from flask_restful import Resource, Api
 from picture_handler import add_banner_pic
 
 app = Flask(__name__)
-# Key for Forms 
+# Key for Forms
 app.config['SECRET_KEY'] = 'mysecretkey'
 
 ############################################
@@ -117,6 +117,7 @@ def update_page(id):
         post.author = form.author.data
         post.editordata = form.content.data
         post.featured = form.featured.data
+        post.banner_image = add_banner_pic(form.banner_image.data, post.title)
         db.session.commit()
         return redirect(url_for('index'))
 

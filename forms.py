@@ -18,6 +18,8 @@ class UpdateForm(FlaskForm):
     title = StringField('Title of Post:', validators=[DataRequired()])
     author = StringField('Author of Post:', validators=[DataRequired()])
     content = TextAreaField('Content of Post:', validators=[DataRequired()])
+    banner_image = FileField('Banner Image:', validators=[
+        FileAllowed(['jpg', 'png'])])
     featured = BooleanField('Is featured')
     submit = SubmitField('Submit Post')
 
